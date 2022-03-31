@@ -30,3 +30,50 @@ Given(/^Google page is opened$/,async function(){
     chai.expect(url).to.equal(expectedURL)
     
 })
+
+//Web Interactions
+
+Given(/^A web page is opened$/, async function(){
+
+    await browser.url("/inputs")
+    await browser.setTimeout({implicit:15000, pageLoad: 10000})
+    //await browser.maximizeWindow()
+})
+
+When(/^Perform web interactions$/, async function(){
+
+    /**
+     * 1. Input Box
+     * Actions:
+     * 
+     * 1. Type into input box
+     * 2. Clear the field and type or just addvalue
+     * 3. Click and type
+     * 4. Slow typing
+     * 
+     */
+
+    let num = 12345
+    let strNum = num.toString()
+
+    let ele = $(`[type=number]`)
+    //await ele.scrollIntoView() - you can use instead of click()
+    await ele.click()
+    //await ele.setValue(strNum)
+
+    //It will not clear the field which is present in the textfield by default
+    //addValue is used in the file upload
+    //await ele.addValue(strNum)
+
+    //await browser.pause(3000)
+
+    for(let i = 0; i < strNum.length; i++){
+
+        let charStr = strNum.charAt(i)
+        await browser.pause(1000)
+        await browser.keys(charStr)
+    }
+
+    await browser.debug()
+
+})
