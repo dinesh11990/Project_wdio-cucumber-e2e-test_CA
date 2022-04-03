@@ -317,13 +317,13 @@ When(/^Perform web interactions$/, async function(){
      * 1. Check number of rows and columns
      * 
      */
-    let rowCount = await $$(`//table[@id="table1"]/tbody/tr`).length
+    /*let rowCount = await $$(`//table[@id="table1"]/tbody/tr`).length
     chai.expect(rowCount).to.equal(4)
     console.log(`>> Number of rows: ${rowCount}`)
 
     let colCount = await $$('//table[@id="table1"]/thead/tr/th').length
     chai.expect(colCount).to.equal(6)
-    console.log(`>> Number of cols: ${colCount}`)
+    console.log(`>> Number of cols: ${colCount}`)*/
 
     /**2. Get whole table data */
 
@@ -431,7 +431,7 @@ When(/^Perform web interactions$/, async function(){
      */
 
     //Scroll down
-    await browser.execute(() => {
+    /*await browser.execute(() => {
         window.scrollBy(0, window.innerHeight)
     })
     await browser.pause(2000)
@@ -446,7 +446,7 @@ When(/^Perform web interactions$/, async function(){
     await browser.execute(() => {
 
         window.scrollBy(0, -window.innerHeight)
-    })
+    })*/
 
 
    /**
@@ -460,7 +460,7 @@ When(/^Perform web interactions$/, async function(){
      * 
      */
 
-    await browser.pause(2000)
+    /*await browser.pause(2000)
     await browser.execute(() => {
 
         window.scrollTo(0, document.body.scrollHeight)
@@ -470,11 +470,65 @@ await browser.pause(2000)
 await browser.execute(() => {
 
     window.scrollTo(0, document.body.scrollTop)
-})
+})*/
 
 
+    /*workout*/
+
+   /* let colCount1 = await $$(`//table[@id="table1"]/thead/tr/th`).length
+    chai.expect(colCount1).to.equal(6)
+    console.log(`>> No. of columns: ${colCount1}`)
+
+    let rowCount1 = await $$(`//table[@id="table1"]/tbody/tr`).length
+    chai.expect(rowCount1).to.equal(4)
+    console.log(`>>No of Rows: ${rowCount1}`)*/
 
 
+    /*//whole table - chai.expect(eleArr.length).to.equal(parseInt(noOfProdutcs))
 
-    await browser.debug()
+    let arr = []
+    for(let i = 0; i < rowCount1; i++){
+
+        let personobj1 = {
+
+
+            lastname: "",
+            firstname: "",
+            email: "",
+            due: "",
+            web: "",
+        }
+
+         for(let j = 0; j < colCount1; j++){
+            let cellVal = await $(`//table[@id="table1"]/tbody/tr[${i + 1}]/td[${j + 1}]`).getText()
+            //console.log(`>>Cell value: ${cellVal}`)
+            if (j === 0) personobj1.lastname = cellVal
+            if (j === 1) personobj1.firstname = cellVal
+            if (j === 2) personobj1.email = cellVal
+            if (j === 3) personobj1.due = cellVal
+            if (j === 4) personobj1.web = cellVal
+        }
+            arr.push(personobj1)
+        
+        }    
+        console.log(`>>Whole Table: ${JSON.stringify(arr)}`)*/
+    
+       /* let arr = []
+        for (let i =0 ; i < rowCount1 ; i++){
+
+            let price = await $(`//table[@id="table1"]/tbody/tr[${i + 1}]/td[4]`).getText()
+            let firstname = await $(`//table[@id="table1"]/tbody/tr[${i + 1}]/td[2]`).getText()
+
+            if(+(price.replace("$", "")) > 50){
+
+                arr.push(firstname)
+
+            }
+        }
+        console.log(`>> Single cell value: ${arr}`)*/
+
+
+    //await browser.debug()
+
+    /*workout*/
 })
